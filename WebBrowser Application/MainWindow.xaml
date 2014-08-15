@@ -1,0 +1,32 @@
+﻿<Window x:Class="WebBrowser_Application.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Web Browser" Height="600" Width="1000" SizeChanged="Window_SizeChanged">
+    <Grid Name="mainGrid">
+        <Menu Height="20" VerticalAlignment="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="About" Click="MenuItem_Click" />
+                <MenuItem Header="Exit" Click="MenuItem_Click" />
+            </MenuItem>
+        </Menu>
+        <Border VerticalAlignment="Top" Height="55" BorderThickness="0, 0, 0, 1" BorderBrush="Black">
+        <StackPanel VerticalAlignment="Top" Margin="10, 25, 0, 0">
+            <!-- Main header for the  Controls -->
+            <Button Width="20" HorizontalAlignment="Left" Padding="3" Name="BrowserGoBack" Click="BrowserGoBack_Click">&#x2190;</Button>
+            <Button Width="20" HorizontalAlignment="Left" Padding="3" Margin="30, -24, 0, 0" Name="BrowserGoForward" Click="BrowserGoForward_Click">&#x2192;</Button>
+                <Button Width="20" HorizontalAlignment="Left" Padding="3" Margin="60, -24, 0, 0" Name="BrowserRefresh" Click="BrowserRefresh_Click">&#10226;</Button>
+                <TextBox Width="700" Padding="3" Name="myUrl" Margin="100, -24, 0, 0" HorizontalAlignment="Left" KeyDown="myUrl_KeyDown"></TextBox>
+        </StackPanel>
+        </Border>
+        <StackPanel>
+            <WebBrowser Name="myBrowser"  
+                            Height="530" 
+                            Margin="0, 55, 0, 0"
+                            KeyDown="myBrowser_KeyDown" 
+                            Navigating="myBrowser_Navigating"
+                            Navigated="myBrowser_Navigated"
+                            LoadCompleted="myBrowser_LoadCompleted"
+                        />
+        </StackPanel>
+    </Grid>
+</Window>
